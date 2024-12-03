@@ -1,22 +1,18 @@
 // src/components/CalendarComponent.js
-import React, { useState } from "react";
-import "../Styles/CalendarComponent.css"
+import React from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import "../Styles/CalendarComponent.css";
 
-const CalendarComponent = ({ setDueDate }) => {
-  const [selectedDate, setSelectedDate] = useState(new Date());
-
-  const handleDateChange = (e) => {
-    const date = new Date(e.target.value);
-    setSelectedDate(date);
-    setDueDate(date);
-  };
-
+const CalendarComponent = ({ dueDate, setDueDate }) => {
   return (
     <div className="calendar">
-      <input
-        type="date"
-        value={selectedDate.toISOString().split("T")[0]}
-        onChange={handleDateChange}
+      <DatePicker
+        selected={dueDate}
+        onChange={(date) => setDueDate(date)}
+        dateFormat="dd-MM-yyyy"
+        placeholderText="Select due date"
+        showPopperArrow={false}
       />
     </div>
   );

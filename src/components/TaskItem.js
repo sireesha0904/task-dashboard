@@ -6,23 +6,15 @@ import "../Styles/TaskItem.css";
 const TaskItem = ({ task }) => {
   const dispatch = useDispatch();
 
-  const handleToggleComplete = () => {
-    dispatch(toggleComplete(task.id));
-  };
-
-  const handleDeleteTask = () => {
-    dispatch(deleteTask(task.id));
-  };
-
   return (
     <div className="task-item">
       <h3>{task.title}</h3>
       <p>{task.description}</p>
       <p>Due Date: {new Date(task.dueDate).toLocaleDateString()}</p>
-      <button onClick={handleToggleComplete}>
-        {task.status === "Completed" ? "Mark as Pending" : "Mark as Completed"}
+      <button onClick={() => dispatch(toggleComplete(task.id))}>
+        {task.status === "Completed" ? "Mark Pending" : "Mark Completed"}
       </button>
-      <button onClick={handleDeleteTask}>Delete Task</button>
+      <button onClick={() => dispatch(deleteTask(task.id))}>Delete</button>
     </div>
   );
 };

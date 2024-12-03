@@ -1,12 +1,33 @@
-.app {
-  font-family: Arial, sans-serif;
-  display: flex;
-  flex-direction: column;
-  background-color: #f1f1f1;
+:root {
+  --navbar-bg: #ffffff;
+  --text-color: #333333;
+  --icon-color: #555555;
+  --icon-hover-color: #000000;
+  --input-bg: #f0f0f0;
 }
 
-.app-body {
-  display: flex;
-  background-color: #f8f8f8;
-  height: 100vh;
+body.dark-theme {
+  --navbar-bg: #1e1e1e;
+  --text-color: #ffffff;
+  --icon-color: #bbbbbb;
+  --icon-hover-color: #ffffff;
+  --input-bg: #333333;
+}
+
+/* Apply variables to your app styles */
+.navbar {
+  background-color: var(--navbar-bg);
+  color: var(--text-color);
+}
+
+.navbar .icon {
+  color: var(--icon-color);
+}
+
+.navbar .icon:hover {
+  color: var(--icon-hover-color);
+}
+
+.search-bar {
+  background-color: var(--input-bg);
 }
