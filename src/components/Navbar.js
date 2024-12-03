@@ -1,8 +1,21 @@
 import React from "react";
-import { FaSearch, FaBell, FaMoon, FaSun, FaUserCircle } from "react-icons/fa";
+import {
+  FaSearch,
+  FaBell,
+  FaMoon,
+  FaSun,
+  FaUserCircle,
+  FaBars,
+} from "react-icons/fa";
 import "../Styles/Navbar.css";
 
-const Navbar = ({ searchTerm, setSearchTerm, toggleTheme, isDarkTheme }) => {
+const Navbar = ({
+  searchTerm,
+  setSearchTerm,
+  toggleTheme,
+  isDarkTheme,
+  toggleSidebar,
+}) => {
   return (
     <nav className="navbar">
       <div className="navbar-left">
@@ -25,6 +38,8 @@ const Navbar = ({ searchTerm, setSearchTerm, toggleTheme, isDarkTheme }) => {
         </button>
         <FaBell className="icon bell-icon" />
         <FaUserCircle className="icon profile-icon" />
+        {/* Mobile sidebar toggle button */}
+        <FaBars className="icon sidebar-toggle" onClick={toggleSidebar} />
       </div>
     </nav>
   );

@@ -1,33 +1,35 @@
+/* Define light theme variables */
 :root {
   --navbar-bg: #ffffff;
   --text-color: #333333;
   --icon-color: #555555;
   --icon-hover-color: #000000;
   --input-bg: #f0f0f0;
+  --sidebar-bg: #ffffff;
+  --sidebar-text-color: #333333;
+  --sidebar-icon-color: #555555;
+  --sidebar-hover-bg: #f4f4f4;
+  --sidebar-selected-bg: #e0e0e0;
+  --sidebar-icon-hover-color: #000000;
 }
 
+/* Dark theme variables */
 body.dark-theme {
   --navbar-bg: #1e1e1e;
   --text-color: #ffffff;
   --icon-color: #bbbbbb;
   --icon-hover-color: #ffffff;
   --input-bg: #333333;
+  --sidebar-bg: #2c2c2c;
+  --sidebar-text-color: #ffffff;
+  --sidebar-icon-color: #bbbbbb;
+  --sidebar-hover-bg: #444444;
+  --sidebar-selected-bg: #555555;
+  --sidebar-icon-hover-color: #ffffff;
 }
 
-/* Apply variables to your app styles */
-.navbar {
+/* Apply these variables globally in your styles */
+body {
   background-color: var(--navbar-bg);
   color: var(--text-color);
-}
-
-.navbar .icon {
-  color: var(--icon-color);
-}
-
-.navbar .icon:hover {
-  color: var(--icon-hover-color);
-}
-
-.search-bar {
-  background-color: var(--input-bg);
 }

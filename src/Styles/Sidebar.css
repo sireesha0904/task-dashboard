@@ -1,66 +1,69 @@
-/* Sidebar Styling */
+/* Sidebar Styles */
 .sidebar {
-  background-color: var(--sidebar-bg);
-  padding: 20px;
+  position: fixed;
+  top: 60px; /* Adjust to match the height of your navbar */
+  left: -250px; /* Initially off-screen */
+  height: calc(100vh - 60px);
   width: 250px;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.3s ease;
+  background-color: var(--sidebar-bg);
+  color: var(--sidebar-text-color);
+  padding-top: 20px;
+  transition: left 0.3s ease; /* Smooth slide-in transition */
+  z-index: 10;
 }
 
-/* Sidebar links */
+/* Sidebar open class for mobile */
+.sidebar-open .sidebar {
+  left: 0; /* Slide in */
+}
+
 .sidebar ul {
-  list-style-type: none;
   padding: 0;
+  margin: 0;
+  list-style: none;
 }
 
-.sidebar ul li {
-  margin-bottom: 15px;
+.sidebar li {
+  padding: 10px 20px;
+  transition: background-color 0.3s ease;
 }
 
-.sidebar ul li button {
-  background-color: transparent;
+.sidebar button {
+  background-color: var(--sidebar-button-bg);
+  color: var(--sidebar-text-color);
+  width: 100%;
+  text-align: left;
+  padding: 10px 20px;
   border: none;
-  color: var(--text-color);
-  font-size: 18px;
   cursor: pointer;
-  display: flex;
-  align-items: center;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
 }
 
-.sidebar ul li button .icon {
-  margin-right: 10px;
+.sidebar button:hover {
+  background-color: var(--sidebar-button-hover-bg);
 }
 
-.sidebar ul li button:hover {
-  color: #007bff;
-}
-
-/* Responsive Design for Sidebar */
-@media screen and (max-width: 768px) {
+/* Mobile view: Hide sidebar initially */
+@media (max-width: 768px) {
   .sidebar {
-    position: absolute;
-    top: 0;
-    left: -250px; /* Initially hidden */
-    width: 100%;
-    height: 100%;
-    background-color: var(--sidebar-bg);
-    z-index: 1000;
+    left: -100%; /* Initially off-screen */
   }
 
-  .sidebar.active {
-    left: 0;
+  /* Show sidebar when toggle is clicked */
+  .sidebar-open .sidebar {
+    left: 0; /* Show sidebar */
   }
 
-  .sidebar ul li button {
-    font-size: 16px;
+  /* Mobile sidebar toggle button */
+  .sidebar-toggle {
+    display: block;
   }
-}
 
-/* For small screens (e.g., mobile) */
-@media screen and (max-width: 576px) {
-  .sidebar ul li button {
-    font-size: 14px;
+  /* Hide sidebar toggle on larger screens */
+  @media (min-width: 769px) {
+    .sidebar-toggle {
+      display: none;
+    }
   }
 }
