@@ -1,0 +1,66 @@
+/* Sidebar Styling */
+.sidebar {
+  background-color: var(--sidebar-bg);
+  padding: 20px;
+  width: 250px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+}
+
+/* Sidebar links */
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin-bottom: 15px;
+}
+
+.sidebar ul li button {
+  background-color: transparent;
+  border: none;
+  color: var(--text-color);
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar ul li button .icon {
+  margin-right: 10px;
+}
+
+.sidebar ul li button:hover {
+  color: #007bff;
+}
+
+/* Responsive Design for Sidebar */
+@media screen and (max-width: 768px) {
+  .sidebar {
+    position: absolute;
+    top: 0;
+    left: -250px; /* Initially hidden */
+    width: 100%;
+    height: 100%;
+    background-color: var(--sidebar-bg);
+    z-index: 1000;
+  }
+
+  .sidebar.active {
+    left: 0;
+  }
+
+  .sidebar ul li button {
+    font-size: 16px;
+  }
+}
+
+/* For small screens (e.g., mobile) */
+@media screen and (max-width: 576px) {
+  .sidebar ul li button {
+    font-size: 14px;
+  }
+}
