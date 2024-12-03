@@ -1,0 +1,30 @@
+.task-dashboard {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 100%;
+}
+
+.task-form input {
+  padding: 10px;
+  margin: 10px;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.task-form button {
+  background-color: #6a0dad;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.task-form button:hover {
+  background-color: #5b0c8b;
+}
+
+.task-list {
+  margin-top: 20px;
+}
