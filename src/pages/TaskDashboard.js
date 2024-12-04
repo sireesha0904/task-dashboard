@@ -1,33 +1,28 @@
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
-import { selectTasks, selectFilter } from "../redux/tasksSlice";
-import TaskItem from "../components/TaskItem";
+import React from "react";
 import TaskForm from "../components/TaskForm";
+import TaskItem from "../components/TaskItem";
+import { useSelector } from "react-redux";
+import { selectTasks } from "../redux/tasksSlice";
+import "../Styles/TaskDashboard.css";
 
-const TaskDashboard = () => {
+const TaskDashboard = ({ searchTerm }) => {
   const tasks = useSelector(selectTasks);
-  const filter = useSelector(selectFilter);
 
-  const [editingTask, setEditingTask] = useState(null);
-
+  // Filter tasks based on the search term
   const filteredTasks = tasks.filter(
-    (task) => filter === "All" || task.status === filter
+    (task) =>
+      task.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      task.description.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (
     <div className="task-dashboard">
-      <TaskForm editingTask={editingTask} setEditingTask={setEditingTask} />
+      <TaskForm />
       <div className="tasks-list">
-        {filteredTasks.length > 0 ? (
-          filteredTasks.map((task) => (
-            <TaskItem
-              key={task.id}
-              task={task}
-              onEdit={(task) => setEditingTask(task)}
-            />
-          ))
+        {filteredTasks.length ? (
+          filteredTasks.map((task) => <TaskItem key={task.id} task={task} />)
         ) : (
-          <p>No tasks available</p>
+          <p>No tasks found</p>
         )}
       </div>
     </div>

@@ -1,10 +1,7 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import { deleteTask, toggleComplete } from "../redux/tasksSlice";
+import "../Styles/TaskItem.css";
 
-const TaskItem = ({ task, onEdit }) => {
-  const dispatch = useDispatch();
-
+const TaskItem = ({ task }) => {
   return (
     <div className="task-item">
       <div>
@@ -14,9 +11,9 @@ const TaskItem = ({ task, onEdit }) => {
         <p>Status: {task.status}</p>
       </div>
       <div className="task-actions">
-        <button onClick={() => onEdit(task)}>Edit</button>
-        <button onClick={() => dispatch(deleteTask(task.id))}>Delete</button>
-        <button onClick={() => dispatch(toggleComplete(task.id))}>
+        <button>Edit</button>
+        <button>Delete</button>
+        <button>
           {task.status === "Completed" ? "Mark Pending" : "Mark Completed"}
         </button>
       </div>
