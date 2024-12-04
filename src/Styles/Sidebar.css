@@ -2,7 +2,7 @@
 .sidebar {
   position: fixed;
   top: 60px; /* Adjust to match the height of your navbar */
-  left: -250px; /* Initially off-screen */
+  left: -250px; /* Initially off-screen for small screens */
   height: calc(100vh - 60px);
   width: 250px;
   background-color: var(--sidebar-bg);
@@ -54,16 +54,16 @@
   .sidebar-open .sidebar {
     left: 0; /* Show sidebar */
   }
+}
 
-  /* Mobile sidebar toggle button */
-  .sidebar-toggle {
-    display: block;
+/* Laptop and larger screens: Sidebar is always visible */
+@media (min-width: 769px) {
+  .sidebar {
+    left: 0; /* Fixed and always visible */
   }
 
-  /* Hide sidebar toggle on larger screens */
-  @media (min-width: 769px) {
-    .sidebar-toggle {
-      display: none;
-    }
+  /* Hide the mobile sidebar toggle button */
+  .sidebar-toggle {
+    display: none;
   }
 }
